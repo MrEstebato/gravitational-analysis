@@ -1,4 +1,3 @@
-% File: rotating_points_voronoi.m
 % Simulation of 8 points rotating circularly around a central point with Voronoi diagram
 
 % Parameters
@@ -71,9 +70,11 @@ for frame = 1:num_frames
     if ~isempty(voronoi_handle)
         delete(voronoi_handle); % Clear previous Voronoi lines
     end
-    voronoi_handle = voronoi(x_positions, y_positions, 'k');
+    %voronoi_handle = voronoi(x_positions, y_positions, 'k');
+    voronoi_handle = voronoiDiagram(x_positions, y_positions);
     
     % Pause to create animation effect
     pause(0.05);
 end
+
 
