@@ -4,7 +4,7 @@ This project simulates a dynamic Voronoi diagram where points orbit a central po
 
 ## Animation
 
-![Voronoi Animation](animacion_voronoi.mp4)
+![Voronoi Animation](animacion_voronoi.gif)
 
 ---
 
