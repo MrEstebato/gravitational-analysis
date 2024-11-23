@@ -14,8 +14,8 @@ This project simulates a dynamic Voronoi diagram where points orbit a central po
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/dynamic-voronoi.git
-   cd dynamic-voronoi
+   git clone https://github.com/MrEstebato/gravitational-analysis.git
+   cd gravitational-analysis
    ```
 
 2. Open `solarSystem.m` in MATLAB.
