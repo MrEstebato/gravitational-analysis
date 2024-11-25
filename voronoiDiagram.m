@@ -19,9 +19,7 @@ function voronoi_handle = voronoiDiagram(x_positions, y_positions, box)
                 end
             end
         end
-        if ~isempty(cell_pts)
-            cells{p} = [cell_pts; cell_pts(1, :)];
-        end
+        cells{p} = [cell_pts; cell_pts(1, :)];
     end
 
     voronoi_handle = plotVoronoiCells(cells);
@@ -31,12 +29,10 @@ function voronoi_handle = voronoiDiagram(x_positions, y_positions, box)
         x0 = (px + qx) / 2;
         y0 = (py + qy) / 2;
 
-        dx = qx - px;
-        dy = qy - py;
-
-        a = dx;
-        b = dy;
+        a = qx - px;
+        b = qy - py;
         c = -(a * x0 + b * y0);
+        
     end
 
     function [clipped_poly, valid] = clipPolygon(poly, a, b, c)
