@@ -31,10 +31,10 @@ colors = lines(num_points + 1);
 
 
 % Espacio del universo (cuadrado)
-min_x = -max(radii);
-min_y = -max(radii);
-max_x = max(radii);
-max_y = max(radii);
+min_x = -max(radii) + central_point(1);
+min_y = -max(radii) + central_point(2);
+max_x = max(radii) + central_point(1);
+max_y = max(radii) + central_point(2);
 
 % Espacio disponible (caja inicial que abarca todo el plano)
 box = [min_x - padding, min_y - padding;
