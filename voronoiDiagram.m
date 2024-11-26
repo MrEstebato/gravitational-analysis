@@ -1,3 +1,8 @@
+% Cálculo del diagrama.
+% Entrada: posiciones de los puntos (x, y) y el límite del espacio.
+% Funcionamiento: revisa cada uno de los puntos y genera el área de Voronoi
+% específico de ese punto, almacenandolo en un arreglo de celdas.
+% Salida: gráfica del diagrama en el estado actual.
 function voronoi_handle = voronoiDiagram(x_positions, y_positions, box)
 
     S = [x_positions(:), y_positions(:)];
@@ -24,6 +29,11 @@ function voronoi_handle = voronoiDiagram(x_positions, y_positions, box)
 
     voronoi_handle = plotVoronoiCells(cells);
 
+    % Calcula los coeficientes de la perpendicular en una posición entre
+    % los puntos p y q tal que la fuerza en dicho punto sea 0.
+    % Entrada: posiciones de los puntos p y q (x, y indica si es
+    % coordenada x, y, respectivamente).
+    % Salida: coeficientes de la ecuación del bisector perpendicular.
     function [a, b, c] = getPerpendicularBisector(px, py, qx, qy)
 
         x0 = (px + qx) / 2;
@@ -35,6 +45,11 @@ function voronoi_handle = voronoiDiagram(x_positions, y_positions, box)
         
     end
 
+    % De corresponder al área de Voronoi, agrega el bisector dentro del
+    % poliígono que representa dicha área.
+    % Entrada: polígono actual y los coeficientes del bisector nuevo.
+    % Salida: arreglo de puntos que delimitan el polígono y la
+    % especificación si es o no válido.
     function [clipped_poly, valid] = clipPolygon(poly, a, b, c)
         distances = a * poly(:, 1) + b * poly(:, 2) + c;
         inside = distances <= 0;
@@ -59,6 +74,9 @@ function voronoi_handle = voronoiDiagram(x_positions, y_positions, box)
         valid = true;
     end
 
+    % Genera la gráfica.
+    % Entrada: celdas (áreas de Voronoi)
+    % Salida: objeto que contiene la gráfica.
     function voronoi_handle = plotVoronoiCells(cells)
         hold on;
         colors = lines(numel(cells));
