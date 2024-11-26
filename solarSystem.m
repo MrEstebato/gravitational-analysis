@@ -25,10 +25,13 @@ points_data = struct('radius', num2cell(radii), 'speed', num2cell(speeds), 'angl
 % Colores, incluye el punto central
 colors = lines(num_points + 1);
 
+% Espacio del universo (cuadrado)
 min_x = -max(radii);
 min_y = -max(radii);
 max_x = max(radii);
 max_y = max(radii);
+
+% Espacio disponible (caja inicial que abarca todo el plano)
 box = [min_x - padding, min_y - padding;
            max_x + padding, min_y - padding;
            max_x + padding, max_y + padding;
@@ -71,6 +74,6 @@ for frame = 1:num_frames
     if ~isempty(voronoi_handle)
         delete(voronoi_handle);
     end
-    voronoi_handle = voronoiDiagram(x_positions, y_positions, box);
+    voronoi_handle = voronoiDiagram(x_positions, y_positions, box); % Crea diagrama de Voronoi
     drawnow;
 end
