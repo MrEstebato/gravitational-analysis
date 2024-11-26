@@ -1,10 +1,22 @@
 
 central_point = [0, 0];
-num_points = 8;
 padding = 0.5;
 
-radii = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5]; % 
-speeds = [0.05, 0.15, 0.065, 0.03, 0.07, 0.04, 0.08, 0.01]; % Velocidad angular
+aux =                   input("Posición x del centro                   : ");
+central_point(1) = aux;
+aux =                   input("Posición y del centro                   : ");
+central_point(1) = aux;
+
+num_points = input("Número de puntos : ");
+
+radii = [];
+speeds = [];
+angles = [];
+
+for i=1 : num_points
+    radii(i) =  input("Indica la distancia del centro           : ");
+    speeds(i) = input("Indica la velocidad angular (°/frame)    : ");
+end
 angles = linspace(0, 2 * pi, num_points + 1);
 angles(end) = [];
 
